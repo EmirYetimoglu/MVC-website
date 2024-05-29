@@ -1,0 +1,163 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<form method="post" asp-controller="Product" name="ProductForm" asp-action="ProductSave">
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: seagreen;
+            border-radius: 10px;
+            
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #45a049;
+            }
+
+
+    </style>
+   
+   
+    
+    <label class="form-check-label" for="Firstname">First Name :</label>
+    <input type="text" name="Firstname" />
+    <br />
+    <label class="form-check-label" for="Lastname">Last Name :</label>
+    <input type="text" name="Lastname" />
+    <br />
+    <label class="form-check-label" for="Jobtitle">Jobtitle :</label>
+    <input type="text" name="Jobtitle" />
+    <br />
+    <label class="form-check-label" for="Salary">Desired Salary :</label>
+    <input type="text" name="Salary" />
+    <br />
+    <p> <label for="adress">Adress:</label> </p>
+    <textarea id="adress" name="adress" rows="4" cols="50">
+    </textarea>
+    <br />
+    <label for="Birthday">Date of Birth:</label>
+    <input type="date" id="Birthday" name="Birthday">
+    <br />
+    <label for="Gender">Gender:</label>
+    <br />
+    <input type="radio" id="Gender" name="Gender" value="Male">
+    <label for="Gender">Male</label><br>
+    <input type="radio" id="Gender" name="Gender" value="Female">
+    <label for="Gender">Female</label><br>
+    <label for="emails">E-mail:</label>
+    <input type="email" id="email" name="email" multiple>
+
+    
+    <label for="country">Country :</label>
+    <select name="Country" id="Country" >
+        <option value="Turkey">Turkey</option>
+        <option value="Germany">Germany</option>
+        <option value="Italy">Italy</option>
+        <option value="France">France</option>
+    </select>
+        <br />
+        <br />
+        <input type="checkbox" id="agree" name="agree" value="agree">
+        <label for="agree"> I agree to the Terms of Use</label> <br>
+        <input type="checkbox" id="agree" name="agree" value="agree">
+        <label for="agree">I hereby declare that the information provided is true and correct </label>
+        <br>
+
+        
+         <input type="submit" name="Submit" value="Submit Form" />
+
+         <br />
+         <div>
+             <input type= "text" name="day" id="day" />
+             <input type= "button" value="Click Me!" onclick="myFunction()"; />
+         </div>
+         
+        
+    
+
+</form>
+<script>
+    function myFunction(){
+        day=document.ProductForm.day.value;
+        day=document.getElementById("day").value;
+        if(day==1){
+            alert("pazartesi")
+        }
+        else if(day==2){
+            alert("sali")
+        }
+        else if(day==3){   
+            alert("carsamba")
+        }
+        else if(day==4){   
+            alert("persembe")
+        }
+        else if(day==5){   
+            alert("cuma")
+        }
+        else if(day==6){   
+            alert("cumartesi")
+        }
+        else if(day==7){   
+            alert("pazar")
+        }
+        else{
+            alert("There is no day for this number")
+        }
+    }
+//alert ("Please fill the form!");
+// result = confirm ("Please fill the form!"); 
+ //alert (result);
+/* if (result=true){
+     alert("You pressed Ok button")
+ }
+ else
+ {
+     alert ("You pressed cancel button!")
+ }*/
+ 
+/* x=3
+ if(x<0)
+ {
+     alert("negative")
+ }
+ else
+ {
+     alert("positive")
+ }*/
+</script>

@@ -1,0 +1,55 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Registration</title>
+  
+</head>
+<body>
+   
+
+    <script>
+        function volunteerSave() {
+            
+            var fullName = document.getElementById("fullName").value;
+            var email = document.getElementById("email").value;
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            var address = document.getElementById("address").value;
+            var dob = document.getElementById("dob").value;
+            var gender = document.querySelector('input[name="gender"]:checked').value;
+            var skills = [];
+            document.querySelectorAll('input[name="skills"]:checked').forEach(function (skill) {
+                skills.push(skill.value);
+            });
+            var availability = document.getElementById("availability").value;
+            var communication = document.querySelector('input[name="communication"]:checked').value;
+            var profilePicture = document.getElementById("profilePicture").value;
+
+            
+            var volunteer = {
+                fullName: fullName,
+                email: email,
+                phoneNumber: phoneNumber,
+                address: address,
+                dob: dob,
+                gender: gender,
+                skills: skills,
+                availability: availability,
+                communication: communication,
+                profilePicture: profilePicture
+            };
+
+            
+            console.log(volunteer);
+
+            return false;
+        }
+    </script>
+</body>
+</html>

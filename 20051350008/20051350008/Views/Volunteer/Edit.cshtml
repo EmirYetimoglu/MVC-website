@@ -1,0 +1,82 @@
+﻿@model _20051350008.Models.VolunteerViewModel
+
+<form name="volunteerForm" method="post" asp-controller="Volunteer" asp-action="Edit">
+
+    <div id="Test">
+       
+
+        <div class="form-group">
+            <label asp-for="FullName">Full Name</label>
+            <input asp-for="FullName" class="form-control" />
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Email">Email</label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PhoneNumber">Phone Number</label>
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Address">Address</label>
+            <input asp-for="Address" class="form-control" />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DateOfBirth">Date of Birth</label>
+            <input asp-for="DateOfBirth" class="form-control" />
+            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Gender">Gender</label>
+            <input asp-for="Gender" class="form-control" />
+            <span asp-validation-for="Gender" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Skills</label><br />
+            <input type="checkbox" asp-for="Skills" value="Programming" />
+            <label>Programming</label><br />
+            <input type="checkbox" asp-for="Skills" value="Marketing" />
+            <label>Marketing</label><br />
+            <input type="checkbox" asp-for="Skills" value="Fundraising" />
+            <label>Fundraising</label><br />
+            <input type="checkbox" asp-for="Skills" value="Others" />
+            <label>Others</label><br />
+            <span asp-validation-for="Skills" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Availability">Availability</label>
+            <input asp-for="Availability" class="form-control" />
+            <span asp-validation-for="Availability" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CommunicationMethod">Preferred Communication Method</label><br />
+            <input type="radio" asp-for="CommunicationMethod" value="Email" />
+            <label>Email</label><br />
+            <input type="radio" asp-for="CommunicationMethod" value="Phone" />
+            <label>Phone</label><br />
+            <input type="radio" asp-for="CommunicationMethod" value="SMS" />
+            <label>SMS</label><br />
+            <span asp-validation-for="CommunicationMethod" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ProfilePicturePath">Upload Profile Picture</label>
+            <input asp-for="ProfilePicturePath" class="form-control" />
+            <span asp-validation-for="ProfilePicturePath" class="text-danger"></span>
+        </div>
+
+        <input type="submit" value="Submit" class="btn btn-primary" />
+    </div>
+</form>

@@ -1,0 +1,170 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Volunteer Registration</title>
+        <style>
+            .container {
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #66b3ff;
+                border-radius: 10px;
+            }
+
+            input[type="text"],
+            input[type="email"],
+            textarea,
+            select {
+                width: 100%;
+                padding: 10px;
+                margin: 5px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+
+            label {
+                font-weight: bold;
+                color: white;
+            }
+
+            input[type="checkbox"] {
+                margin-right: 5px;
+            }
+
+            input[type="submit"] {
+                background-color: #4caf50;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+                input[type="submit"]:hover {
+                    background-color: #45a049;
+                }
+
+            .error {
+                color: red;
+                font-size: 12px;
+                margin-top: 5px;
+            }
+        </style>
+    </head>
+    <body style="background-image: url('/images/volunteers.jpg'); background-size: cover; background-position: center;">
+    <div class="container">
+        @model VolunteerModel
+        <form method="post" asp-controller="Volunteer" name="VolunteerForm" asp-action="VolunteerSave" onsubmit="return validateForm">
+        <h2>Volunteer Registration Form</h2>
+            <div>
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <br />
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <br />
+            <div>
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" required>
+            </div>
+            <br />
+            <div>
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <br />
+            <div>
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <br />
+            <div>
+                <label>Gender:</label>
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+                <input type="radio" id="other" name="gender" value="other">
+                <label for="other">Other</label>
+            </div>
+            <br />
+            <div>
+                <label>Skills:</label>
+                <input type="checkbox" id="programming" name="skills" value="programming">
+                <label for="programming">Programming</label>
+                <input type="checkbox" id="marketing" name="skills" value="marketing">
+                <label for="marketing">Marketing</label>
+                <input type="checkbox" id="fundraising" name="skills" value="fundraising">
+                <label for="fundraising">Fundraising</label>
+                <input type="checkbox" id="design" name="skills" value="design">
+                <label for="design">Design</label><br>
+                <input type="checkbox" id="writing" name="skills" value="writing">
+                <label for="writing">Writing</label><br>
+            </div>
+            <br />
+            <div>
+                <label for="availability">Availability:</label>
+                <select id="availability" name="availability" required>
+                    <option value="">Select Availability</option>
+                    <option value="fullTime">Full-time</option>
+                    <option value="partTime">Part-time</option>
+                    <option value="weekendsOnly">Weekends only</option>
+                </select>
+            </div>
+            <br />
+            <div>
+                <label>Preferred Communication Method:</label>
+                <input type="radio" id="emailPref" name="communication" value="email" required>
+                <label for="emailPref">Email</label>
+                <input type="radio" id="phonePref" name="communication" value="phone">
+                <label for="phonePref">Phone</label>
+                <input type="radio" id="smsPref" name="communication" value="sms">
+                <label for="smsPref">SMS</label>
+            </div>
+            <br />
+            <div>
+                <label for="profilePicture">Upload Profile Picture:</label>
+                <input type="file" id="profilePicture" name="profilePicture" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            var fullName = document.getElementById("fullName").value;
+            var email = document.getElementById("email").value;
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            var address = document.getElementById("address").value;
+            var dob = document.getElementById("dob").value;
+            var gender = document.querySelector('input[name="gender"]:checked');
+            var skills = document.querySelectorAll('input[name="skills"]:checked');
+            var availability = document.getElementById("availability").value;
+            var communication = document.querySelector('input[name="communication"]:checked');
+            var profilePicture = document.getElementById("profilePicture").value;
+
+            if (fullName == "" || email == "" || phoneNumber == "" || address == "" || dob == "" || !gender || skills.length === 0 || availability == "" || !communication || profilePicture == "") {
+                alert("Please fill in all fields.");
+                return false;
+            }
+
+            return true;
+        }
+        function showThankYouMessage() {
+            alert("Thank you for your application! We'll get in touch with you soon.");
+        }
+        document.querySelector("form").addEventListener("submit", function () {
+            showThankYouMessage();
+        });
+    </script>
+ </body>
+ </html>
